@@ -16,10 +16,13 @@ namespace ComplaintPortal.GUI
     public partial class NewComplaintForm : Form
     {
         private ComplaintBL _compBL;
-        public NewComplaintForm()
+        private UserDTO _currentUser;
+
+        public NewComplaintForm(UserDTO user)
         {
             InitializeComponent();
             _compBL = new ComplaintBL();
+            _currentUser = user;
         }
 
         private void PostCompBtn_Click(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace ComplaintPortal.GUI
                 compDTO.Description = txt_Complaint.Text;
                 compDTO.Type = cmb_Complaint.Text.ToString();
                 compDTO.Status = "PENDING";
+                compDTO.CustomerID = Convert.ToInt32(_currentUser.Id);
                 try
                 {
                     _compBL.RegisterCustomerComplaint(compDTO);

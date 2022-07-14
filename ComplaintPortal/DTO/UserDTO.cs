@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ComplaintPortal.DTO
 {
-    internal class UserDTO
+    public class UserDTO
     {
         //since some values can be null we are overriding null check
+        private string? _id;
         private string? _username;
         private string? _password;
         private string? _role;
@@ -18,5 +19,6 @@ namespace ComplaintPortal.DTO
         public string? Password { get => _password; set => _password = value; }
         public string? Role { get => _role; set => _role = value; }
         public string? Address { get => _address; set => _address = value; }
+        public string? Id { get => _id; set => _id = value; }
     }
 }

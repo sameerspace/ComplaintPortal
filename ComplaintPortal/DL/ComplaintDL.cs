@@ -22,11 +22,12 @@ namespace ComplaintPortal.DL
         public void RegisterCustomerComplaintInDB(ComplaintDTO complaint)
         {
             con.Con.Open();
-            string sql = "INSERT INTO Complaints(type,description,status) VALUES(@type,@description,@status);";
+            string sql = "INSERT INTO Complaints(type,description,status,customerId) VALUES(@type,@description,@status,@uid);";
             SqlCommand com = new SqlCommand(sql, con.Con);
             com.Parameters.AddWithValue("@type",complaint.Type);
             com.Parameters.AddWithValue("@description", complaint.Description);
             com.Parameters.AddWithValue("@status", complaint.Status);
+            com.Parameters.AddWithValue("@uid",complaint.CustomerID);
             try
             {
                 com.ExecuteNonQuery();

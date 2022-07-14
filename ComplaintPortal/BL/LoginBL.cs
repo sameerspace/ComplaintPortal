@@ -36,7 +36,7 @@ namespace ComplaintPortal.BL
             }
             else
             {
-                return new CustomerHomeForm();
+                return new CustomerHomeForm(user);
             }
 
         }

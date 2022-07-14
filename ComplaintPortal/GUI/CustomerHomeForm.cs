@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComplaintPortal.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,17 @@ namespace ComplaintPortal.GUI
 {
     public partial class CustomerHomeForm : Form
     {
-        public CustomerHomeForm()
+        private UserDTO user;
+        public CustomerHomeForm(UserDTO user)
         {
             InitializeComponent();
+            this.user = user;
+
         }
 
         private void RegisterComplaintBtn_Click(object sender, EventArgs e)
         {
-            NewComplaintForm form = new NewComplaintForm();
+            NewComplaintForm form = new NewComplaintForm(user);
             form.ShowDialog();
         }
     }

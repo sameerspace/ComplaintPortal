@@ -31,6 +31,7 @@ namespace ComplaintPortal.DL
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
+                    retDto.Id = reader["Id"].ToString()?.Trim();
                     retDto.Address = reader["username"].ToString()?.Trim();
                     retDto.Password = reader["password"].ToString()?.Trim();    
                     retDto.Role = reader["role"].ToString()?.Trim();    
