@@ -56,6 +56,7 @@
             this.RegisterComplaintBtn.TabIndex = 1;
             this.RegisterComplaintBtn.Text = "Register New Complaint";
             this.RegisterComplaintBtn.UseVisualStyleBackColor = false;
+            this.RegisterComplaintBtn.Click += new System.EventHandler(this.RegisterComplaintBtn_Click);
             // 
             // CustomerHomeForm
             // 

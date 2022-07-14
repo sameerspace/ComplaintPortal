@@ -24,16 +24,16 @@ namespace ComplaintPortal.DL
             try
             {
                 UserDTO retDto = new UserDTO();
-                string sql = "SELECT * FROM Users WHERE Users.username = '@username' AND Users.password = '@password';";
+                string sql = "SELECT * FROM Users WHERE Users.username = @username AND Users.password = @password;";
                 SqlCommand com = new SqlCommand(sql, conn.Con);
                 com.Parameters.AddWithValue("@username", user.Username);
                 com.Parameters.AddWithValue("@password", user.Password);
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    retDto.Address = reader["username"].ToString();
-                    retDto.Password = reader["password"].ToString();    
-                    retDto.Role = reader["role"].ToString();    
+                    retDto.Address = reader["username"].ToString()?.Trim();
+                    retDto.Password = reader["password"].ToString()?.Trim();    
+                    retDto.Role = reader["role"].ToString()?.Trim();    
                     if(retDto.Role == "Customer")
                     {
                         retDto.Address = reader["address"].ToString();

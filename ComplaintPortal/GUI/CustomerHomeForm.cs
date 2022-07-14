@@ -16,5 +16,11 @@ namespace ComplaintPortal.GUI
         {
             InitializeComponent();
         }
+
+        private void RegisterComplaintBtn_Click(object sender, EventArgs e)
+        {
+            NewComplaintForm form = new NewComplaintForm();
+            form.ShowDialog();
+        }
     }
 }

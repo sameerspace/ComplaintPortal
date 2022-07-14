@@ -27,6 +27,7 @@ namespace ComplaintPortal
                 user.Username = txt_username.Text;
                 user.Password = txt_password.Text;
                 _loginBL.VerifyUser(user).ShowDialog();
+                
             }
         }
         private bool verifyCredentials()
